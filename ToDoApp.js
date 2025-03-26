@@ -17,7 +17,7 @@ connectedCallback(){
     //Inject html and css directly in to component every thing inside this will be come layout of ToDoApp
     this.shadowRoot.innerHTML = `
     <style>${this.getStyle()}</style> <!-- style will be inject here -->
-    <div class= "container">
+    <div class="container">
         <form id="form">
             <input type="text" id="taskInput" placeholder"Enter you task here">
             <button id="submit_btn" type="submit">Enter</button>
@@ -35,51 +35,95 @@ connectedCallback(){
     this.setEventListeners();
 }
 
-getStyle(){
-    return `
-    /* Example minimal styling for now */
-      #taskContainer {
-        background: #fff;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        padding: 16px;
-        max-width: 400px;
-        margin: auto;
-        font-family: sans-serif;
-        box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
-      }
-      form {
-        display: flex;
-        gap: 10px;
-      }
-      input[type="text"] {
-        flex-grow: 1;
-        padding: 8px;
-      }
-      button {
-        padding: 8px 12px;
-        background: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      button:hover {
-        background: #0056b3;
-      }
-      ul {
-        margin-top: 16px;
-        padding-left: 0;
-      }
-      li {
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 4px 0;
-      }
-    `;
+getStyle() {
+  return `
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      margin: 40px auto;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #0056b3;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #007bff;
+    }
+
+    #taskResult p {
+      color: red;
+      margin-top: 0;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    li span {
+      flex: 1;
+      margin-left: 10px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    li input[type="checkbox"] {
+      cursor: pointer;
+    }
+
+    li button {
+      background-color: red;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    li button:hover {
+      background-color: darkred;
+    }
+  `;
 }
+
 
 /*
  * This function is called when there are changes when component is add to the html page
@@ -97,7 +141,7 @@ setEventListeners(){
 
         //check if task is empty or not
         if(task === "" ){
-            taskResult.innerHTML = '<p>PLease enter your task</p>';
+            taskResult.innerHTML = '<p>Please enter your task</p>';
             setTimeout(() => taskResult.innerHTML = "", 3000);
             return;
         }
