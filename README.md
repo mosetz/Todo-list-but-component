@@ -13,8 +13,10 @@ All features are encapsulated using Shadow DOM to prevent style or logic collisi
 ---
 
 
-/TODOJS_V2
-├── index.html       # Main HTML file
-├── style.css        # Stylesheet for UI
-├── ToDoApp.js       # Web Component logic and task handling
-└── README.md        # Project documentation (this file)
+### 📁 Project Structure
+
+- `/TODOJS_V2/`
+  - `index.html` – Main HTML file
+  - `style.css` – Stylesheet for UI
+  - `ToDoApp.js` – Web Component logic and task handling
+  - `README.md` – Project documentation (this file)
