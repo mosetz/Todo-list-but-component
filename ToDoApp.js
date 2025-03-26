@@ -13,7 +13,7 @@ this.attachShadow({mode: 'open'});
 /*
  * This function is called when there are changes when component is add to the html page
  */
-connectCallback(){
+connectedCallback(){
     //Inject html and css directly in to component every thing inside this will be come layout of ToDoApp
     this.shadowRoot.innerHTML = `
     <style>${this.getStyle()}</style> <!-- style will be inject here -->
@@ -90,7 +90,7 @@ setEventListeners(){
     const taskResult = this.shadowRoot.querySelector("#taskResult");
     const taskList = this.shadowRoot.querySelector("#taskList");
 
-    form.addEvenListener("submit", (e) => {
+    form.addEventListener("submit", (e) => {
 
         e.preventDefault();
         let task = taskInput.value.trim();
@@ -121,28 +121,28 @@ setEventListeners(){
           span.textContent = task;
 
           //add event listener to checkbox create a line through
-          cb.this.addEventListener("change", (e) => {
+          cb.addEventListener("change", (e) => {
             span.style.textDecoration = cb.checked ? 'line-through' : 'none' ;
           });
 
-          const deleteBtn = document.createElementNS("button");
+          const deleteBtn = document.createElement("button");
           deleteBtn.textContent = "X";
 
           //add event listener to delete button
-          deleteBtn.this.addEventListener("click", (e) => {
+          deleteBtn.addEventListener("click", (e) => {
             li.remove();
           })
 
           li.appendChild(cb);
-          li.appendChild(deleteBtn);
           li.appendChild(span);
-
+          li.appendChild(deleteBtn);
+        
           taskList.appendChild(li);
 
-          taskInput.Value = "";
+          taskInput.value = '';
           taskResult.innerHTML = '';
     });
-}
+  }
 
 }
 
