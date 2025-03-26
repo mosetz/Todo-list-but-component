@@ -12,12 +12,6 @@ All features are encapsulated using Shadow DOM to prevent style or logic collisi
 
 ---
 
-## 🧩 Demo
-
-![demo gif or screenshot here](./screenshot.png)  
-_(You can add a gif or screenshot to showcase it in action!)_
-
----
 
 ## 📁 Project Structure
 /TODOJS_V2
